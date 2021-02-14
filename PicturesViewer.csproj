@@ -82,6 +82,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Favicon.ico" />
+    <Content Include="Images\Left.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Rigth.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
