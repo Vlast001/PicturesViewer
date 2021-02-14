@@ -84,6 +84,30 @@ namespace PicturesViewer
                 listBox1.SelectedIndex = k;
             }
         }
+
+        private void Backward()
+        {
+            k = listBox1.SelectedIndex;
+            if (k == -1)
+            {
+                MessageBox.Show("Изображение не выбрано", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                N = listBox1.Items.Count;
+                if (k == 0)
+                {
+                    k = N-1;
+                }
+                else
+                {
+                    k--;
+                }
+
+                listBox1.SelectedIndex = k;
+            }
+        }
+
         private void ForwButton_Click(object sender, EventArgs e)
         {
             Forward();
@@ -100,6 +124,7 @@ namespace PicturesViewer
                 MessageBox.Show("Изображение не выбрано", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
+                timer1.Interval = (int)intervalSlideShow.Value;
                 timer1.Start();
             }
         }
@@ -127,5 +152,11 @@ namespace PicturesViewer
             pathes.Clear();
             pictureBox1.Image = Image.FromFile(@"..\..\Images\logo.png");
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Backward();
+        }
+
     }
 }

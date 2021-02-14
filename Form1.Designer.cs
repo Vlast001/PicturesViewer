@@ -42,17 +42,20 @@ namespace PicturesViewer
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.intervalSlideShow = new System.Windows.Forms.NumericUpDown();
+            this.ForwButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ForwButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.intervalSlideShow)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +85,7 @@ namespace PicturesViewer
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -90,7 +93,7 @@ namespace PicturesViewer
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -98,7 +101,7 @@ namespace PicturesViewer
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -150,6 +153,8 @@ namespace PicturesViewer
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.intervalSlideShow);
             this.groupBox2.Controls.Add(this.ForwButton);
             this.groupBox2.Controls.Add(this.stopButton);
             this.groupBox2.Controls.Add(this.resetButton);
@@ -161,6 +166,53 @@ namespace PicturesViewer
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление просмотром";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Интервал для \r\nслайд-шоу";
+            // 
+            // intervalSlideShow
+            // 
+            this.intervalSlideShow.Increment = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.intervalSlideShow.Location = new System.Drawing.Point(93, 56);
+            this.intervalSlideShow.Maximum = new decimal(new int[] {
+            25000,
+            0,
+            0,
+            0});
+            this.intervalSlideShow.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.intervalSlideShow.Name = "intervalSlideShow";
+            this.intervalSlideShow.Size = new System.Drawing.Size(60, 20);
+            this.intervalSlideShow.TabIndex = 5;
+            this.intervalSlideShow.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // ForwButton
+            // 
+            this.ForwButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForwButton.BackgroundImage")));
+            this.ForwButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ForwButton.Location = new System.Drawing.Point(114, 19);
+            this.ForwButton.Name = "ForwButton";
+            this.ForwButton.Size = new System.Drawing.Size(39, 34);
+            this.ForwButton.TabIndex = 4;
+            this.ForwButton.UseVisualStyleBackColor = true;
+            this.ForwButton.Click += new System.EventHandler(this.ForwButton_Click);
             // 
             // stopButton
             // 
@@ -201,6 +253,7 @@ namespace PicturesViewer
             this.backButton.Size = new System.Drawing.Size(39, 34);
             this.backButton.TabIndex = 0;
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // groupBox3
             // 
@@ -226,17 +279,6 @@ namespace PicturesViewer
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // ForwButton
-            // 
-            this.ForwButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForwButton.BackgroundImage")));
-            this.ForwButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ForwButton.Location = new System.Drawing.Point(114, 19);
-            this.ForwButton.Name = "ForwButton";
-            this.ForwButton.Size = new System.Drawing.Size(39, 34);
-            this.ForwButton.TabIndex = 4;
-            this.ForwButton.UseVisualStyleBackColor = true;
-            this.ForwButton.Click += new System.EventHandler(this.ForwButton_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 2000;
@@ -259,6 +301,8 @@ namespace PicturesViewer
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.intervalSlideShow)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -287,6 +331,8 @@ namespace PicturesViewer
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button ForwButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown intervalSlideShow;
     }
 }
 
