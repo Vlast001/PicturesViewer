@@ -88,5 +88,44 @@ namespace PicturesViewer
         {
             Forward();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Forward();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            if(listBox1.SelectedIndex == -1)
+                MessageBox.Show("Изображение не выбрано", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                timer1.Start();
+            }
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            listBox1.SelectedIndex = 0;
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                timer1.Stop();
+            }
+
+            listBox1.Items.Clear();
+            names.Clear();
+            pathes.Clear();
+            pictureBox1.Image = Image.FromFile(@"..\..\Images\logo.png");
+        }
     }
 }
