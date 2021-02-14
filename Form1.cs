@@ -45,9 +45,21 @@ namespace PicturesViewer
 
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
-
+                    names.AddRange(openFile.SafeFileNames);
+                    pathes.AddRange(openFile.FileNames);
+                    listBox1.Items.Clear();
+                    foreach (var n in names)
+                    {
+                        listBox1.Items.Add(n);
+                    }
                 }
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            k = listBox1.SelectedIndex;
+            pictureBox1.Image = Image.FromFile(pathes[k]);
         }
     }
 }
