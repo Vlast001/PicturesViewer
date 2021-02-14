@@ -44,10 +44,10 @@ namespace PicturesViewer
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.ForwButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,14 +88,14 @@ namespace PicturesViewer
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -145,11 +145,11 @@ namespace PicturesViewer
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.ForwButton);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.backButton);
             this.groupBox2.Location = new System.Drawing.Point(12, 525);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(159, 111);
@@ -184,15 +184,15 @@ namespace PicturesViewer
             this.button2.Text = "Start";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // backButton
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 34);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backButton.Location = new System.Drawing.Point(6, 19);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(39, 34);
+            this.backButton.TabIndex = 0;
+            this.backButton.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -215,15 +215,16 @@ namespace PicturesViewer
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button5
+            // ForwButton
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Location = new System.Drawing.Point(114, 19);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(39, 34);
-            this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = true;
+            this.ForwButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForwButton.BackgroundImage")));
+            this.ForwButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ForwButton.Location = new System.Drawing.Point(114, 19);
+            this.ForwButton.Name = "ForwButton";
+            this.ForwButton.Size = new System.Drawing.Size(39, 34);
+            this.ForwButton.TabIndex = 4;
+            this.ForwButton.UseVisualStyleBackColor = true;
+            this.ForwButton.Click += new System.EventHandler(this.ForwButton_Click);
             // 
             // Form1
             // 
@@ -264,11 +265,11 @@ namespace PicturesViewer
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ForwButton;
     }
 }
 

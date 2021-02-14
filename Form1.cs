@@ -61,5 +61,32 @@ namespace PicturesViewer
             k = listBox1.SelectedIndex;
             pictureBox1.Image = Image.FromFile(pathes[k]);
         }
+
+        private void Forward()
+        {
+            k = listBox1.SelectedIndex;
+            if (k == -1)
+            {
+                MessageBox.Show("Изображение не выбрано", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                N = listBox1.Items.Count;
+                if (k == N - 1)
+                {
+                    k = 0;
+                }
+                else
+                {
+                    k++;
+                }
+
+                listBox1.SelectedIndex = k;
+            }
+        }
+        private void ForwButton_Click(object sender, EventArgs e)
+        {
+            Forward();
+        }
     }
 }
