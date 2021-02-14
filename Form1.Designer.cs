@@ -35,7 +35,7 @@ namespace PicturesViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 465);
+            this.ClientSize = new System.Drawing.Size(715, 327);
             this.Name = "Form1";
             this.Text = "Simple Picture Viewer";
             this.ResumeLayout(false);
